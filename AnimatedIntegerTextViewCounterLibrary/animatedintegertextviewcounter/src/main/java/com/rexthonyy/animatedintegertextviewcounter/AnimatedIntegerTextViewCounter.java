@@ -42,10 +42,10 @@ public class AnimatedIntegerTextViewCounter extends android.support.v7.widget.Ap
         appendWith = "";
 
         String text = getText().toString();
-        if(Utils.isInteger(text)){
-            int value = Integer.parseInt(text);
-            currentValue = (float)value;
-            targetValue = (float)value;
+        if(Utils.isFloat(text)){
+            float value = Float.parseFloat(text);
+            currentValue = value;
+            targetValue = value;
         }
 
         if(attrs != null){
@@ -66,6 +66,10 @@ public class AnimatedIntegerTextViewCounter extends android.support.v7.widget.Ap
                     appendWith = appendWith == null ? "" : appendWith;
                 }
             }
+
+            if(reloadTimeInMilliseconds == 0){
+                reloadTimeInMilliseconds = animationDurationInMilliseconds / 100;
+            }
             a.recycle();
         }
 
@@ -73,10 +77,8 @@ public class AnimatedIntegerTextViewCounter extends android.support.v7.widget.Ap
         updateAnimation();
     }
 
-    @SuppressLint("SetTextI18n")
     public void setValue(String text) {
-        String textVal = text.toString();
-        targetValue = Utils.isInteger(textVal)?Integer.parseInt(textVal):0;
+        targetValue = Utils.isFloat(text)?Float.parseFloat(text):0;
         updateAnimation();
         setText();
     }
@@ -89,19 +91,20 @@ public class AnimatedIntegerTextViewCounter extends android.support.v7.widget.Ap
     private void checkCondition(){
         if(Math.abs(targetValue - currentValue) < 0.5){
             currentValue = targetValue;
+            setText();
             if(reloader != null) reloader.onPause();
         }else{
             if(reloader != null) reloader.onResume();
         }
     }
 
-    @SuppressLint("SetTextI18n")
     public void doAnimation(){
-        checkCondition();
         currentValue += incrementBy;
         setText();
+        checkCondition();
     }
 
+    @SuppressLint("SetTextI18n")
     private void setText(){
         setText((int)currentValue + appendWith);
     }

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewCounter.setValue(editText1.getText());
+                textViewCounter.setValue(editText1.getText().toString());
             }
         });
     }

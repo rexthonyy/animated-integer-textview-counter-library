@@ -19,14 +19,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="43"
             android:textSize="24sp"
             android:textColor="#000"
-            app:animationDurationInMilliseconds="1500"
-            app:reloadTimeInMilliseconds="100"
-            app:appendWith="%"
+            app:animationDurationInMilliseconds="500"
+            app:reloadTimeInMilliseconds="10"
             app:startValue="0"
-            app:targetValue="1000" />
+            app:targetValue="0"
+            app:appendWith="%" />
     </RelativeLayout>
 
     <LinearLayout
@@ -54,6 +53,7 @@
                     android:textColor="#000"
                     android:textSize="24sp"
                     android:textAlignment="center"
+                    android:inputType="number"
                     android:gravity="center_horizontal" />
             </FrameLayout>
 
@@ -79,7 +79,6 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="300dp"
             android:text="Submit"/>
     </LinearLayout>
 </LinearLayout>
