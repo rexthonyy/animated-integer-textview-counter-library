@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnimatedIntegerTextViewCounter">
+        <attr name="animationDurationInMilliseconds" format="integer"/>
+        <attr name="reloadTimeInMilliseconds" format="integer"/>
+        <attr name="startValue" format="float"/>
+        <attr name="targetValue" format="float"/>
+        <attr name="appendWith" format="string"/>
+    </declare-styleable>
+</resources>

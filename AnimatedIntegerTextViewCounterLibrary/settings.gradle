@@ -1,0 +1,3 @@
+rootProject.name='AnimatedIntegerTextViewCounterLibrary'
+include ':app'
+include ':animatedintegertextviewcounter'
